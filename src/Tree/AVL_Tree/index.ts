@@ -104,7 +104,7 @@ export class Node{
         node.height = node2.height
         node2.height = height_node
     }
-    private balanceNode(){
+    balanceNode(){
         const rotateDirection = this.getRotationDirection()
         switch (rotateDirection){
             case RotationType.Right:
@@ -230,6 +230,7 @@ export class AVL_Tree{
     deleteNode(value: number){
         if (this.root){
             this.root.deleteNode(value)
+            this.root.balanceNode()
         }
     }
     searchNode(value: number):Node | null{
